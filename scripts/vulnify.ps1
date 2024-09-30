@@ -31,34 +31,34 @@ if ($PSBoundParameters.Count -eq 0) {
 
 # Display help information if --help is invoked
 if ($Help) {
-   Write-Host @"
-Usage: ./vulnify.ps1 [options...] <input folder>
+    Write-Host @"
+    _    ____  ____    _   ______________  __
+    | |  / / / / / /   / | / /  _/ ____/\ \/ /
+    | | / / / / / /   /  |/ // // /_     \  / 
+    | |/ / /_/ / /___/ /|  // // __/     / /  
+    |___/\____/_____/_/ |_/___/_/       /_/   
+                                          
+    one driver at a time
 
-COMMON OPTIONS
+Vulnify [Version: 1.0.0]
 
-  -f  <path>    : Folder containing specific vulnerable drivers to test (.bin/.sys)
-  -d  <year>    : Filter by creation year
-  -dd <date>    : Filter by full creation date (yy-mm-date)
-  -os <os>      : Filter by specific operating system
-  -u  <usecase> : Filter by exploit usecase
-  -s            : Stop all vulnerable driver services immediately after testing
-  -r            : Stop and remove all vulnerable drivers from the system
-  -vv           : Verbose output
+Usage: 
+    ./vulnify.ps1 [flags] 
 
-OTHER OPTIONS
+Flags:
 
-  --help        : Displays this help page
+    -dd <date>      filter by full creation date (yy-mm-dd)
+    -u  <usecase>   filter by exploit use case
+    -h              help for Vulnify
 
-EXAMPLES
+Examples:
 
-  ./vulnify.ps1 -v -a
-  ./vulnify.ps1 -v -d "2023" -os "Windows 10"
-  ./vulnify.ps1 -v -dd "2024-06-20" -u "Elevate privileges"
-  ./vulnify.ps1 -f "C:\Users\admin\Documents\vulnerable\drivers\" -r
-
+    ./vulnify.ps1 -a
+    ./vulnify.ps1 -dd "2023-05-06" -u "Elevate privileges"
 "@
     exit
 }
+
 
 # Functions for formatting logging messages
 function Option {
@@ -225,7 +225,7 @@ try {
                             $tags = $item['Tags'][0]
                             $creationDate = $item['Created']
 
-
+                                    
                             foreach ($sample in $item['KnownVulnerableSamples']) {
                                 if ($sample['MD5']) {
                                 $md5_hash = $sample['MD5']
@@ -276,9 +276,4 @@ try {
 }
 
 # Call driver_loader.ps1
-& "$PSScriptRoot\driver_loader.ps1" -Folder $($downloadFolder)
-
-<#
-./driver_filter.ps1 -a 
-./driver_filter -dd "2024-06-20" -u "Elevate privileges"
-#>
+& "$PSScriptRoot\loader.ps1" -Folder $($downloadFolder)
