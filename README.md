@@ -12,14 +12,14 @@
 
 ### Quick Start
 
-Vulnify source code available <a href="https://github.com/tevelsho/dso-automated-penetration-testing-v1/tree/Main/scripts">here</a> and can be cloned using `git clone`:
+Vulnify source code available <a href="https://github.com/tevelsho/vulnify/tree/Main/scripts">here</a> and can be cloned using `git clone`:
 ```bash
-git clone https://github.com/tevelsho/dso-automated-penetration-testing-v1.git
+git clone https://github.com/tevelsho/vulnify.git
 ```
 
 After cloing the project we are going to need to change the current directory to the cloned repository:
 ```bash
-cd dso-automated-penetration-testing-v1
+cd vulnify
 ```
 
 #### Install the dependencies
@@ -73,7 +73,7 @@ Examples:
 
 <i>Note: `vulnify.ps1` automatically calls `loader.ps1` once it has finish running. If the script breaks halfway, either re-run the script OR run the loader with the folder (full path) containing the vulnerable drivers:</i>
 ```powershell
-.\loader.ps1 -f "~\dso-automated-penetration-testing-v1\vulnerable_LOTL_drivers"
+.\loader.ps1 -f "~\vulnify\vulnerable_LOTL_drivers"
 ```
 
 Vulnify works well on the latest Window's Machines (23H2). It's recommended to use the latest versions possible to avoid issues.
