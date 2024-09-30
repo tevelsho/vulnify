@@ -1,4 +1,5 @@
 param (
+    [Alias("f")]
     [Parameter(Mandatory=$true)]
     [string]$Folder
 )
@@ -146,7 +147,3 @@ Process-Files -validFiles $validFiles -folder $Folder
 
 # DEBUGGING - Prevent the terminal from closing immediately
 Read-Host -Prompt "Press Enter to close:"
-
-<#
-.\driver_loader.ps1 -Folder "C:\Users\tevel\OneDrive\Documents\dso-automated-penetration-testing-project\vulnerable_LOTL_drivers"
-#>
