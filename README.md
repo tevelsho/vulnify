@@ -5,7 +5,7 @@
   <p><i>Vulnify is a PowerShell tool that automatically identifies and tests vulnerable Windows kernel drivers from the <a href="https://www.loldrivers.io/api/drivers.json">LOTL API list</a> created by <a href="https://www.linkedin.com/in/tevelsho">@TevelSho</a>.</i></p>
   <br />
 
-  <img src="assets/vulnify_results.jpg" width="70%" /><br />
+  <img src="assets/vulnify_results.png" width="70%" /><br />
 </div>
 
 > :warning: Vulnify is just a quick PoC. Breaking changes may be made to APIs and also there are many known bugs and issues.
@@ -30,7 +30,7 @@ After following the steps above we need to install the needed dependecies for th
 > Ensure that <a href="https://code.visualstudio.com/docs/languages/powershell">VS Code PowerShell extension</a> is installed.
 
 #### Running Vulnify
-Due to Version and Admin Privilege issues in Powershell, the tool had to be split up into two scripts (`Filter` & `Loader`).
+Due to PowerShell version and admin privilege limitations, the tool was divided into two scripts: `vulnify.ps1` for filtering and `loader.ps1` for loading.
 
 Navigate to the directory where the PowerShell scripts are located at:
 ```bash
@@ -92,14 +92,19 @@ If you run into issues, check the [Known Issues](#known-issues).
 ---
 
 ### Known Issues
-
+| Bug    | Description     | Severity    |
+| ------- | ------------ | ------- |
+| Blue Screen of Death (BSOD)   | Returns a `SYSTEM_THREAD_EXCEPTION_NOT_HANDLED` error due to internal driver issues or system threads failing to handle exceptions.<br> Requires a full machine restart, breaking the script | High   |
+| Failure to Fetch API Data   | Returns a `404 Not Found` error.<br> Breaks the script due to improper handling | Medium   |
+| Instance of a Driver already Running | Error message indicating the driver file cannot be accessed as it is in use by another process.<br> Doesn't break the script | Low   |
 
 ### Potential Features
 
-- Filter by year only.
-- Saving vulnreable driver's MD5 hashes to a file.
-- Stopping & removing vulnreable drivers from the system after testing.
-
+- Enhanced filtering (e.g., by year)
+- Auto-stop and remove vulnerable drivers post-testing
+- Save MD5 hashes of vulnerable drivers to a file for crash recovery
+- Improved dynamic error handling
+- 
 ### Contributing
 
 To contribute to Vulnify, please open a pull-request! 
