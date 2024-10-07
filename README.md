@@ -104,7 +104,7 @@ If you run into issues, check the [Known Issues](#known-issues).
 - Auto-stop and remove vulnerable drivers post-testing
 - Save MD5 hashes of vulnerable drivers to a file for crash recovery
 - Improved dynamic error handling
-- 
+  
 ### Contributing
 
 To contribute to Vulnify, please open a pull-request! 
