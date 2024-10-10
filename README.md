@@ -71,9 +71,9 @@ Examples:
     ./vulnify.ps1 -dd "2023-05-06" -u "Elevate privileges"
 ```
 
-<i>Note: `vulnify.ps1` automatically calls `loader.ps1` once it has finish running. If the script breaks halfway, either re-run the script OR run the loader with the folder (full path) containing the vulnerable drivers:</i>
+<i>Note: `vulnify.ps1` automatically calls `loader.ps1` once it has finish running. If the script breaks halfway, either re-run the script OR run the loader with the folder (**full path**) containing the vulnerable drivers:</i>
 ```powershell
-.\loader.ps1 -f "~\vulnify\vulnerable_LOTL_drivers"
+.\loader.ps1 -f "C:\Users\Admin\vulnify\vulnerable_LOTL_drivers"
 ```
 
 Vulnify works well on the latest Window's Machines (23H2). It's recommended to use the latest versions possible to avoid issues.
