@@ -98,13 +98,6 @@ If you run into issues, check the [Known Issues](#known-issues).
 | Failure to Fetch API Data   | Returns a `404 Not Found` error.<br> Breaks the script due to improper handling | Medium   |
 | Instance of a Driver already Running | Error message indicating the driver file cannot be accessed as it is in use by another process.<br> Doesn't break the script | Low   |
 
-### Potential Features
-
-- Enhanced filtering (e.g., by year)
-- Auto-stop and remove vulnerable drivers post-testing
-- Save MD5 hashes of vulnerable drivers to a file for crash recovery
-- Improved dynamic error handling
-  
 ### Contributing
 
 To contribute to Vulnify, please open a pull-request! 
@@ -112,5 +105,3 @@ To contribute to Vulnify, please open a pull-request!
 ### Note
 
 Please do not open any issues regarding those in [Known Issues](#known-issues). 
-
-
